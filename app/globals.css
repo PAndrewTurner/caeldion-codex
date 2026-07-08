@@ -3,25 +3,139 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --sash: #c0c0c0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-charcoal font-body text-[#b9bec7] antialiased;
+  }
+
+  ::selection {
+    background: rgba(212, 175, 55, 0.35);
+    color: #f8f9fa;
+  }
+
+  :focus-visible {
+    outline: 2px solid #d4af37;
+    outline-offset: 2px;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  /* The Sash — woven cloth band. The only permitted color variation. */
+  .sash {
+    background-color: var(--sash);
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.12) 0px,
+        rgba(255, 255, 255, 0.12) 2px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(0, 0, 0, 0.1) 4px
+      ),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(0, 0, 0, 0.2));
+  }
+
+  /* Classification stamp / filing text */
+  .stamp {
+    @apply font-mono text-[11px] uppercase tracking-[0.18em] text-silver/60;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.22em] text-gold;
+  }
+
+  /* Archival prose inside lore entries */
+  .prose-archive {
+    @apply text-[15px] leading-7 text-[#b9bec7];
+  }
+  .prose-archive > * + * {
+    @apply mt-4;
+  }
+  .prose-archive h2 {
+    @apply mt-12 scroll-mt-24 border-b pb-3 font-display text-2xl tracking-wide text-alabaster;
+    border-color: rgba(192, 192, 192, 0.25);
+  }
+  .prose-archive h3 {
+    @apply mt-8 font-display text-lg tracking-wide text-alabaster;
+  }
+  .prose-archive strong {
+    @apply font-semibold text-alabaster;
+  }
+  .prose-archive a {
+    @apply text-gold underline decoration-gold/40 underline-offset-4 transition-colors hover:text-alabaster hover:decoration-alabaster/50;
+  }
+  .prose-archive ul {
+    @apply list-none space-y-2 border-l pl-6;
+    border-color: rgba(192, 192, 192, 0.25);
+  }
+  .prose-archive ul li::before {
+    content: '·';
+    @apply -ml-4 mr-3 text-gold;
+  }
+  .prose-archive ol {
+    @apply list-decimal space-y-2 pl-6 marker:font-mono marker:text-xs marker:text-gold;
+  }
+  .prose-archive blockquote {
+    @apply border-l-2 border-gold/60 bg-vault px-6 py-4 italic text-silver;
+  }
+  .prose-archive table {
+    @apply w-full border-collapse font-mono text-[13px];
+  }
+  .prose-archive th {
+    @apply border-b-2 px-3 py-2 text-left text-[11px] uppercase tracking-[0.15em] text-alabaster;
+    border-color: rgba(192, 192, 192, 0.4);
+  }
+  .prose-archive td {
+    @apply border-b px-3 py-2 align-top;
+    border-color: rgba(192, 192, 192, 0.15);
+  }
+  .prose-archive code {
+    @apply font-mono text-[13px] text-gold;
+  }
+  .prose-archive hr {
+    @apply my-10 border-t;
+    border-color: rgba(192, 192, 192, 0.25);
+  }
+}
+
+/* Page-load reveal — one orchestrated moment, disabled for reduced motion */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.rise-1 {
+  animation-delay: 0.08s;
+}
+.rise-2 {
+  animation-delay: 0.18s;
+}
+.rise-3 {
+  animation-delay: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .rise,
+  .rise-1,
+  .rise-2,
+  .rise-3 {
+    animation: none;
+  }
 }

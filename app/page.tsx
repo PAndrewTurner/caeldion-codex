@@ -1,113 +1,128 @@
-import Image from 'next/image'
+import Link from 'next/link'
+import DoctrineStrip from '@/components/DoctrineStrip'
+import UniformCard from '@/components/UniformCard'
+import { SECTIONS } from '@/lib/sections'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main>
+      {/* Cover page of the compendium */}
+      <section className="border-b">
+        <div className="mx-auto flex max-w-archive flex-col items-center px-6 py-24 text-center md:py-32">
+          <p className="stamp rise">
+            Imperial Archive of Caeldrion · Rec. 0001-A · Clearance: General
+          </p>
+          <svg
+            width="34"
+            height="34"
+            viewBox="0 0 34 34"
+            aria-hidden="true"
+            className="rise rise-1 mt-10"
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+            <rect
+              x="8.5"
+              y="8.5"
+              width="17"
+              height="17"
+              transform="rotate(45 17 17)"
+              fill="none"
+              stroke="#D4AF37"
+              strokeWidth="1.5"
             />
-          </a>
+            <rect
+              x="12.5"
+              y="12.5"
+              width="9"
+              height="9"
+              transform="rotate(45 17 17)"
+              fill="none"
+              stroke="#D4AF37"
+              strokeWidth="1"
+            />
+            <circle cx="17" cy="17" r="2" fill="#D4AF37" />
+          </svg>
+          <h1 className="rise rise-1 mt-8 font-display text-4xl tracking-[0.12em] text-alabaster sm:text-5xl md:text-7xl">
+            THE CAELDION CODEX
+          </h1>
+          <p className="rise rise-2 mt-6 max-w-xl leading-7 text-[#9aa0ab]">
+            The definitive record of the Empire of Caeldrion — its Grand Army,
+            its Icons, its Arcanum, and its surveyed territories. Compiled by
+            order of the Sovereign.
+          </p>
+          <p className="rise rise-3 mt-10 flex flex-wrap items-center justify-center gap-4 font-mono text-[11px] uppercase tracking-[0.2em] text-gold sm:tracking-[0.3em]">
+            <span aria-hidden="true" className="hidden h-px w-10 bg-gold/50 sm:block" />
+            Meritocracy · Uniformity · Economy
+            <span aria-hidden="true" className="hidden h-px w-10 bg-gold/50 sm:block" />
+          </p>
         </div>
-      </div>
+      </section>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      {/* The five sections of the archive */}
+      <section className="mx-auto max-w-archive px-6 py-16">
+        <h2 className="sr-only">Sections of the archive</h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          {SECTIONS.map((s) => (
+            <UniformCard
+              key={s.key}
+              href={`/${s.key}`}
+              sash={s.sash}
+              eyebrow={`Codex/${s.ref}`}
+              title={s.label}
+              summary={s.blurb}
+            />
+          ))}
+        </div>
+      </section>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
+      {/* The Sea of Silver */}
+      <section className="mx-auto max-w-archive px-6 py-16">
+        <div className="mb-8 flex flex-wrap items-baseline justify-between gap-4">
+          <div>
+            <p className="eyebrow">Visual doctrine · GA-00</p>
+            <h2 className="mt-2 font-display text-3xl tracking-wide text-alabaster">
+              The Sea of Silver
+            </h2>
+            <p className="mt-3 max-w-2xl leading-7 text-[#9aa0ab]">
+              One steel for every soldier. Birthright is erased at issue;
+              only the cloth of an operational role may vary. Six divisions,
+              distinguished by sash alone.
+            </p>
+          </div>
+          <Link
+            href="/grand-army"
+            className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold transition-colors hover:text-alabaster"
+          >
+            Full order of battle →
+          </Link>
+        </div>
+        <DoctrineStrip />
+      </section>
+
+      {/* Featured plate */}
+      <section className="mx-auto max-w-archive px-6 py-16">
+        <figure className="border bg-vault">
+          <Link href="/history/battle-of-the-five-bridges" className="group block">
+            <span className="block max-h-[480px] overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/assets/divisions/iron-legion/charge.png"
+                alt="The charge of the Iron Legion at the Battle of the Five Bridges"
+                loading="lazy"
+                className="w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+              />
             </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+            <figcaption className="flex flex-wrap items-baseline justify-between gap-2 border-t p-4">
+              <span className="stamp">
+                Plate HI-03/P1 — the Legion&apos;s charge at failing light, the
+                Battle of the Five Bridges
+              </span>
+              <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold transition-colors group-hover:text-alabaster">
+                Read the certified account →
+              </span>
+            </figcaption>
+          </Link>
+        </figure>
+      </section>
     </main>
   )
 }

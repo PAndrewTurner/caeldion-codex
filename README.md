@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# The Caeldion Codex
 
-## Getting Started
+The official lore archive of the Empire of Caeldrion — Grand Army, Icons, Arcanum, Geography, and History — built as a Next.js 13 (App Router) site with Tailwind CSS and MDX content.
 
-First, run the development server:
+## Run it
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open <http://localhost:3000>.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Add or edit lore
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Every entry is an MDX file under `content/<section>/<slug>.mdx` with frontmatter:
 
-## Learn More
+```yaml
+---
+title: "Entry Title"
+codexRef: GA-07          # filing number; controls sort order
+category: Grand Army
+division: iron-legion    # optional — sets the sash color from lib/sections.ts
+sash: "#D4AF37"          # optional — explicit sash color if no division
+tags: [tag-one, tag-two]
+summary: One-sentence archivist summary shown on cards and entry headers.
+heroImage: /assets/...   # optional
+clearance: General       # or Restricted — display only
+date: 2026-07-08
+---
+```
 
-To learn more about Next.js, take a look at the following resources:
+New files appear automatically in their section index and sidebar. Cross-link entries with standard markdown links (`[the Burn](/arcanum/the-burn)`). Inside MDX you can use `<PlateGallery plates={[...]} />` and `<Figure src alt caption aspect />`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Design system
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Tokens (colors, fonts) live in `tailwind.config.ts`; divisional metadata in `lib/sections.ts`.
+- The **Sash Doctrine**: every card and header is an identical silver-ruled component — the only permitted variation is the colored cloth band (`.sash` in `app/globals.css`).
+- Design spec: `docs/superpowers/specs/2026-07-08-caeldrion-codex-design.md`.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Images are served unoptimized from `public/assets/` (local-only deployment).

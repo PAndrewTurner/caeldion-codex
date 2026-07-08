@@ -2,16 +2,35 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './content/**/*.mdx',
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        charcoal: '#16181D',
+        vault: '#1F232B',
+        alabaster: '#F8F9FA',
+        silver: '#C0C0C0',
+        gold: '#D4AF37',
+        cobalt: '#0047AB',
+        crimson: '#8B0000',
+        ranger: '#2E8B57',
+        iron: '#1A1A1A',
+        imperial: '#4B0082',
+        craftsman: '#3E6E70',
+      },
+      fontFamily: {
+        display: ['var(--font-marcellus)', 'Georgia', 'serif'],
+        body: ['var(--font-source-sans)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-plex-mono)', 'ui-monospace', 'monospace'],
+      },
+      borderColor: {
+        DEFAULT: 'rgba(192, 192, 192, 0.25)',
+      },
+      maxWidth: {
+        archive: '80rem',
       },
     },
   },
