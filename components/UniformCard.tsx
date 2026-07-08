@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { asset } from '@/lib/asset'
 
 /**
  * The uniform record card. Identical for every entry in the archive —
@@ -36,7 +37,7 @@ export default function UniformCard({
           <span className="block aspect-[16/9] overflow-hidden border-b">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={image}
+              src={asset(image)}
               alt={imageAlt ?? ''}
               loading="lazy"
               className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"

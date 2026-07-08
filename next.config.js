@@ -1,7 +1,13 @@
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Static export for GitHub Pages.
+  output: 'export',
+  trailingSlash: true,
+  basePath,
   images: {
-    // Local-only deployment; source renders are large and served as-is.
+    // No image optimization server in static export; renders served as-is.
     unoptimized: true,
   },
 }

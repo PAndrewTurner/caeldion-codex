@@ -1,3 +1,5 @@
+import { asset } from '@/lib/asset'
+
 /** Single archival plate with a filing caption. */
 export default function Figure({
   src,
@@ -21,7 +23,7 @@ export default function Figure({
       <span className={`block overflow-hidden ${aspectClass}`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={src}
+          src={asset(src)}
           alt={alt}
           loading="lazy"
           className={`w-full object-cover ${aspectClass ? 'h-full' : 'h-auto'}`}

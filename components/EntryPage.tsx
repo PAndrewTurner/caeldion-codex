@@ -11,6 +11,7 @@ import {
   getEntry,
 } from '@/lib/content'
 import { getSection } from '@/lib/sections'
+import { asset } from '@/lib/asset'
 
 /** The uniform document template. Every lore entry in the archive uses it. */
 export default function EntryPage({
@@ -89,7 +90,7 @@ export default function EntryPage({
               <span className="block max-h-[430px] overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={entry.meta.heroImage}
+                  src={asset(entry.meta.heroImage)}
                   alt={entry.meta.title}
                   className="w-full object-cover object-top"
                 />

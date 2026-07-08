@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { asset } from '@/lib/asset'
 import { DIVISIONS } from '@/lib/sections'
 
 const PORTRAITS: Record<string, string> = {
@@ -26,7 +27,7 @@ export default function DoctrineStrip() {
           <span className="block aspect-[3/4] overflow-hidden">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={PORTRAITS[d.slug]}
+              src={asset(PORTRAITS[d.slug])}
               alt={`${d.name} issued war-steel`}
               loading="lazy"
               className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"

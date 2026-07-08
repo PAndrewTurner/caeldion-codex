@@ -1,3 +1,5 @@
+import { asset } from '@/lib/asset'
+
 export interface Plate {
   src: string
   caption: string
@@ -13,7 +15,7 @@ export default function PlateGallery({ plates }: { plates: Plate[] }) {
           <span className="block aspect-[3/4] overflow-hidden">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={p.src}
+              src={asset(p.src)}
               alt={p.caption}
               loading="lazy"
               className="h-full w-full object-cover object-top"

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { asset } from '@/lib/asset'
 import DoctrineStrip from '@/components/DoctrineStrip'
 import UniformCard from '@/components/UniformCard'
 import { SECTIONS } from '@/lib/sections'
@@ -105,7 +106,7 @@ export default function Home() {
             <span className="block max-h-[480px] overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/assets/divisions/iron-legion/charge.png"
+                src={asset('/assets/divisions/iron-legion/charge.png')}
                 alt="The charge of the Iron Legion at the Battle of the Five Bridges"
                 loading="lazy"
                 className="w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"

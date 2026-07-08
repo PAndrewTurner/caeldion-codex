@@ -3,6 +3,7 @@ import type { MDXComponents } from 'mdx/types'
 import PlateGallery from './PlateGallery'
 import Figure from './Figure'
 import { slugifyHeading } from '@/lib/content'
+import { asset } from '@/lib/asset'
 
 function headingText(children: React.ReactNode): string {
   if (typeof children === 'string') return children
@@ -26,7 +27,12 @@ export const mdxComponents: MDXComponents = {
   },
   img: ({ src, alt }) => (
     // eslint-disable-next-line @next/next/no-img-element
-    <img src={src} alt={alt ?? ''} loading="lazy" className="border" />
+    <img
+      src={src ? asset(src) : src}
+      alt={alt ?? ''}
+      loading="lazy"
+      className="border"
+    />
   ),
   PlateGallery,
   Figure,
