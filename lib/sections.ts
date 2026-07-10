@@ -1,5 +1,6 @@
 export type SectionKey =
   | 'grand-army'
+  | 'armor'
   | 'icons'
   | 'arcanum'
   | 'governance'
@@ -21,6 +22,14 @@ export const SECTIONS: SectionDef[] = [
     ref: 'GA',
     blurb:
       'Order of battle for the eleven divisions of the Sea of Silver, their doctrine, and their issued war-steel.',
+    sash: '#C0C0C0',
+  },
+  {
+    key: 'armor',
+    label: 'The Armory',
+    ref: 'AM',
+    blurb:
+      'The war-steel doctrine: the three issued kits, their component pieces, and the specialist configurations built on top of them.',
     sash: '#C0C0C0',
   },
   {
