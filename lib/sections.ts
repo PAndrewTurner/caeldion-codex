@@ -2,6 +2,7 @@ export type SectionKey =
   | 'grand-army'
   | 'icons'
   | 'arcanum'
+  | 'governance'
   | 'geography'
   | 'history'
 
@@ -19,7 +20,7 @@ export const SECTIONS: SectionDef[] = [
     label: 'The Grand Army',
     ref: 'GA',
     blurb:
-      'Order of battle for the six divisions of the Sea of Silver, their doctrine, and their issued war-steel.',
+      'Order of battle for the eleven divisions of the Sea of Silver, their doctrine, and their issued war-steel.',
     sash: '#C0C0C0',
   },
   {
@@ -36,6 +37,14 @@ export const SECTIONS: SectionDef[] = [
     ref: 'AR',
     blurb:
       'Science Division findings on the Weave, the Burn, and the runic countermeasures that keep casters alive.',
+    sash: '#D4AF37',
+  },
+  {
+    key: 'governance',
+    label: 'Governance',
+    ref: 'GV',
+    blurb:
+      'The constitutional order of the Empire: the Crown, the Senate, the Imperial Command Council, the Inner Sanctum, and the Eye.',
     sash: '#D4AF37',
   },
   {
@@ -107,11 +116,46 @@ export const DIVISIONS: DivisionDef[] = [
     ref: 'GA-05',
   },
   {
-    slug: 'craftsman',
-    name: 'The Craftsman Corps',
-    epithet: 'Medical · Science · Engineering',
-    color: '#3E6E70',
+    slug: 'azure-covenant',
+    name: 'The Azure Covenant',
+    epithet: 'The Living Battery',
+    color: '#4682B4',
     ref: 'GA-06',
+  },
+  {
+    slug: 'medical-corps',
+    name: 'The Medical Corps',
+    epithet: 'The White Hand',
+    color: '#EDE6D6',
+    ref: 'GA-07',
+  },
+  {
+    slug: 'engineering-corps',
+    name: 'The Engineering Corps',
+    epithet: 'The Knit',
+    color: '#D97706',
+    ref: 'GA-08',
+  },
+  {
+    slug: 'logistics-corps',
+    name: 'The Logistics Corps',
+    epithet: 'The Lifeline',
+    color: '#C2A878',
+    ref: 'GA-09',
+  },
+  {
+    slug: 'imperial-cavalry',
+    name: 'The Imperial Cavalry',
+    epithet: 'The Mounted Arm',
+    color: '#D4AF37',
+    ref: 'GA-10',
+  },
+  {
+    slug: 'imperial-navy',
+    name: 'The Imperial Navy',
+    epithet: 'The Silver Fleet',
+    color: '#1B4F6B',
+    ref: 'GA-11',
   },
 ]
 

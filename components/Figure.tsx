@@ -5,7 +5,7 @@ export default function Figure({
   src,
   alt,
   caption,
-  aspect = 'wide',
+  aspect = 'natural',
 }: {
   src: string
   alt: string
@@ -20,15 +20,27 @@ export default function Figure({
         : ''
   return (
     <figure className="my-8 border bg-vault">
-      <span className={`block overflow-hidden ${aspectClass}`}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={asset(src)}
-          alt={alt}
-          loading="lazy"
-          className={`w-full object-cover ${aspectClass ? 'h-full' : 'h-auto'}`}
-        />
-      </span>
+      {aspectClass ? (
+        <span className={`block overflow-hidden ${aspectClass}`}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={asset(src)}
+            alt={alt}
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
+        </span>
+      ) : (
+        <span className="flex justify-center bg-charcoal/60">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={asset(src)}
+            alt={alt}
+            loading="lazy"
+            className="max-h-[620px] w-auto max-w-full object-contain"
+          />
+        </span>
+      )}
       {caption && (
         <figcaption className="stamp border-t p-3">{caption}</figcaption>
       )}

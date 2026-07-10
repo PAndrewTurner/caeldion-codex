@@ -5,7 +5,7 @@ import DoctrineStrip from '@/components/DoctrineStrip'
 export const metadata: Metadata = {
   title: 'The Grand Army',
   description:
-    'Order of battle for the six divisions of the Sea of Silver, their doctrine, and their issued war-steel.',
+    'Order of battle for the eleven divisions of the Sea of Silver, their doctrine, and their issued war-steel.',
 }
 
 export default function GrandArmyPage() {

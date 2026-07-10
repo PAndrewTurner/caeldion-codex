@@ -84,15 +84,21 @@
     @apply border-l-2 border-gold/60 bg-vault px-6 py-4 italic text-silver;
   }
   .prose-archive table {
-    @apply w-full border-collapse font-mono text-[13px];
+    @apply w-full border-collapse text-[13.5px];
   }
   .prose-archive th {
-    @apply border-b-2 px-3 py-2 text-left text-[11px] uppercase tracking-[0.15em] text-alabaster;
+    @apply border-b-2 bg-vault px-4 py-2.5 text-left font-mono text-[11px] font-medium uppercase tracking-[0.15em] text-alabaster;
     border-color: rgba(192, 192, 192, 0.4);
   }
   .prose-archive td {
-    @apply border-b px-3 py-2 align-top;
+    @apply border-b px-4 py-2.5 align-top leading-6;
     border-color: rgba(192, 192, 192, 0.15);
+  }
+  .prose-archive td:first-child {
+    @apply font-mono text-[12px] text-alabaster;
+  }
+  .prose-archive tr:nth-child(even) td {
+    background: rgba(255, 255, 255, 0.02);
   }
   .prose-archive code {
     @apply font-mono text-[13px] text-gold;

@@ -34,6 +34,11 @@ export const mdxComponents: MDXComponents = {
       className="border"
     />
   ),
+  table: ({ children }) => (
+    <div className="overflow-x-auto border">
+      <table className="!my-0 min-w-[560px]">{children}</table>
+    </div>
+  ),
   PlateGallery,
   Figure,
 }

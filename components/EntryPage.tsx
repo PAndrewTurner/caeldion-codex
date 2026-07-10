@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
 import ClassificationStamp from './ClassificationStamp'
 import SidebarNav from './SidebarNav'
 import TOC from './TOC'
@@ -57,7 +58,12 @@ export default function EntryPage({
         </aside>
 
         <article>
-          <header className="flex border bg-vault">
+          <header
+            className="flex border bg-vault"
+            style={{
+              backgroundImage: `linear-gradient(105deg, ${sash}1F, transparent 55%)`,
+            }}
+          >
             <span
               aria-hidden="true"
               className="sash w-1.5 shrink-0 self-stretch"
@@ -87,12 +93,12 @@ export default function EntryPage({
 
           {entry.meta.heroImage && (
             <figure className="mt-px border bg-vault">
-              <span className="block max-h-[430px] overflow-hidden">
+              <span className="flex justify-center bg-charcoal/60">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={asset(entry.meta.heroImage)}
                   alt={entry.meta.title}
-                  className="w-full object-cover object-top"
+                  className="max-h-[560px] w-auto max-w-full object-contain"
                 />
               </span>
               <figcaption className="stamp border-t p-3">
@@ -102,7 +108,11 @@ export default function EntryPage({
           )}
 
           <div className="prose-archive mt-10">
-            <MDXRemote source={entry.body} components={mdxComponents} />
+            <MDXRemote
+              source={entry.body}
+              components={mdxComponents}
+              options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+            />
           </div>
         </article>
 
