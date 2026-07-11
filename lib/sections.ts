@@ -1,6 +1,7 @@
 export type SectionKey =
   | 'grand-army'
   | 'armor'
+  | 'magic'
   | 'icons'
   | 'arcanum'
   | 'governance'
@@ -31,6 +32,14 @@ export const SECTIONS: SectionDef[] = [
     blurb:
       'The war-steel doctrine: the three issued kits, their component pieces, and the specialist configurations built on top of them.',
     sash: '#C0C0C0',
+  },
+  {
+    key: 'magic',
+    label: 'Combat Magic',
+    ref: 'CM',
+    blurb:
+      'The War Academy combat curriculum: how the Empire actually fights with magic — casting doctrine, hybrid weaving, the Coven Link, signature divisional arts, and the counter-magics.',
+    sash: '#0047AB',
   },
   {
     key: 'icons',

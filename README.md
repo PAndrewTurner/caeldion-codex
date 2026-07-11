@@ -1,4 +1,4 @@
-# The Caeldion Codex
+# The Caeldrion Codex
 
 The official lore archive of the Empire of Caeldrion — Grand Army, Icons, Arcanum, Geography, and History — built as a Next.js 13 (App Router) site with Tailwind CSS and MDX content.
 

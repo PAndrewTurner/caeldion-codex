@@ -7,7 +7,7 @@ export default function SiteFooter() {
       <div className="mx-auto grid max-w-archive gap-10 px-6 py-12 md:grid-cols-3">
         <div>
           <p className="font-display text-lg tracking-[0.14em] text-alabaster">
-            THE CAELDION CODEX
+            THE CAELDRION CODEX
           </p>
           <p className="stamp mt-3">Meritocracy · Uniformity · Economy</p>
         </div>

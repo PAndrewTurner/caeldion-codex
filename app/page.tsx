@@ -60,7 +60,7 @@ export default function Home() {
             <circle cx="17" cy="17" r="2" fill="#D4AF37" />
           </svg>
           <h1 className="rise rise-1 mt-8 font-display text-4xl tracking-[0.12em] text-alabaster [text-shadow:0_2px_24px_rgba(0,0,0,0.7)] sm:text-5xl md:text-7xl">
-            THE CAELDION CODEX
+            THE CAELDRION CODEX
           </h1>
           <p className="rise rise-2 mt-6 max-w-xl leading-7 text-[#c4c9d2] [text-shadow:0_1px_12px_rgba(0,0,0,0.8)]">
             The definitive record of the Empire of Caeldrion — its Grand Army,

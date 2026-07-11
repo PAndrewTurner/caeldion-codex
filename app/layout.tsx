@@ -23,8 +23,8 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'The Caeldion Codex — Imperial Archive',
-    template: '%s — The Caeldion Codex',
+    default: 'The Caeldrion Codex — Imperial Archive',
+    template: '%s — The Caeldrion Codex',
   },
   description:
     'The definitive record of the Empire of Caeldrion: the Grand Army, the Icons, the Arcanum, and the surveyed territories.',

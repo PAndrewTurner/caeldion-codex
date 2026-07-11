@@ -13,7 +13,7 @@ export default function SiteHeader() {
         <Link
           href="/"
           className="flex items-center gap-3 whitespace-nowrap"
-          aria-label="The Caeldion Codex — home"
+          aria-label="The Caeldrion Codex — home"
         >
           <svg
             width="18"
@@ -35,7 +35,7 @@ export default function SiteHeader() {
             <circle cx="9" cy="9" r="1.5" fill="#D4AF37" />
           </svg>
           <span className="font-display text-lg tracking-[0.14em] text-alabaster">
-            THE CAELDION CODEX
+            THE CAELDRION CODEX
           </span>
         </Link>
         <span className="stamp hidden lg:inline">
